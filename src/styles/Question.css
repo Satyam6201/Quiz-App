@@ -1,0 +1,9 @@
+.question-container {
+  margin-bottom: 20px;
+}
+
+.question-container h2 {
+  color: #333;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
