@@ -1,17 +1,26 @@
 .answer-button {
   display: block;
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+  width: 80%;
+  padding: 12px;
+  margin: 8px 0;
   border: none;
-  border-radius: 5px;
-  background-color: #007bff;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #ff00ff, #6600ff);
   color: white;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .answer-button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(135deg, #6600ff, #ff00ff);;
+  transform: scale(1.05);
+}
+
+.correct {
+  background-color: #28a745 !important;
+}
+
+.incorrect {
+  background-color: #dc3545 !important;
 }

@@ -17,7 +17,8 @@ function Quiz({ questions, restartQuiz }) {
   };
 
   return (
-    <div>
+    <div className="quiz-container">
+      <h1 className="quiz-title">Interactive Quiz</h1>
       <Progress currentIndex={currentIndex} total={questions.length} />
       {currentIndex < questions.length ? (
         <Question data={questions[currentIndex]} onAnswer={handleAnswer} />
