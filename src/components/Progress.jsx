@@ -11,7 +11,8 @@ function Progress({ currentIndex, total }) {
         <div
           className="progress-bar-fill"
           style={{ width: `${progressPercentage}%` }}
-        ></div>
+        >
+        </div>
       </div>
       <p className="progress-percentage">{progressPercentage.toFixed(0)}%</p>
     </div>
