@@ -23,7 +23,7 @@ function App() {
       {questions.length > 0 ? (
         <Quiz key={quizKey} questions={questions} restartQuiz={restartQuiz} />
       ) : (
-        <p>Loading...</p>
+        <p>Loading....</p>
       )}
     </div>
   );
