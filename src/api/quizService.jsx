@@ -67,7 +67,6 @@ const quizService = {
     }));
   },
 
-  
   shuffleOptions: (questions) => {
     return questions.map(q => ({
       ...q,
