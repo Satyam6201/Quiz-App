@@ -6,17 +6,16 @@ function Question({ data, onAnswer }) {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
 
-  // Shuffle answers when new question loads
   useEffect(() => {
     const shuffled = [...data.incorrect_answers, data.correct_answer].sort(
       () => Math.random() - 0.5
     );
     setShuffledAnswers(shuffled);
-    setSelectedAnswer(null); // Reset selection for new question
+    setSelectedAnswer(null); 
   }, [data]);
 
   const handleAnswerClick = (answer) => {
-    if (selectedAnswer) return; // Prevent clicking multiple times
+    if (selectedAnswer) return; 
 
     setSelectedAnswer(answer);
     onAnswer(answer === data.correct_answer);
