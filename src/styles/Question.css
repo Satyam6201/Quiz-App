@@ -31,6 +31,25 @@
   animation: popIn 0.3s ease-in-out;
 }
 
+.answer-message {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #222;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeIn {
   from {
     transform: translateY(20px);
