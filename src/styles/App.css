@@ -5,9 +5,9 @@
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
   width: 200%;
-  margin-left: 280px !important;
+  margin-left: 350px !important;
   max-width: 900px;
-  margin: 50px auto;
+  margin: 50px auto ;
   position: relative;
   transition: all 0.3s ease-in-out;
   overflow: hidden;
