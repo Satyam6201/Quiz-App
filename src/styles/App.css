@@ -11,6 +11,7 @@
   position: relative;
   transition: all 0.3s ease-in-out;
   overflow: hidden;
+  height: 120vh;
 }
 
 @keyframes gradientMove {

@@ -2,7 +2,10 @@ import React from "react";
 import "../styles/Progress.css";
 
 function Progress({ currentIndex, total }) {
-  const progressPercentage = ((currentIndex + 1) / total) * 100;
+  const cycleSize = 10;
+  const currentCycleIndex = currentIndex % cycleSize;
+  const currentCycleTotal = Math.min(cycleSize, total - Math.floor(currentIndex / cycleSize) * cycleSize);
+  const progressPercentage = ((currentCycleIndex + 1) / currentCycleTotal) * 100;
 
   const getProgressMessage = () => {
     if (progressPercentage < 40) return "Keep going!";
@@ -13,7 +16,7 @@ function Progress({ currentIndex, total }) {
   return (
     <div className="progress-container">
       <p className="progress-text">
-        🚀 Question {currentIndex + 1} of {total}
+        🚀 Question {currentCycleIndex + 1} of {currentCycleTotal}
       </p>
       <div className="progress-bar" title={getProgressMessage()}>
         <div
