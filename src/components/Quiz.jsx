@@ -7,7 +7,7 @@ import "../styles/Quiz.css";
 function Quiz({ questions, restartQuiz }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(15); // 15 seconds per question
+  const [timeLeft, setTimeLeft] = useState(15); 
   const [quizOver, setQuizOver] = useState(false);
 
   const handleAnswer = (isCorrect) => {
@@ -22,7 +22,7 @@ function Quiz({ questions, restartQuiz }) {
     }
     setTimeout(() => {
       setCurrentIndex((prev) => prev + 1);
-      setTimeLeft(15); // Reset timer for the next question
+      setTimeLeft(15);
     }, 500);
   };
 
