@@ -8,6 +8,7 @@ function Quiz({ questions, restartQuiz }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(15); // 15 seconds per question
+  const [quizOver, setQuizOver] = useState(false);
 
   const handleAnswer = (isCorrect) => {
     if (isCorrect) setScore((prev) => prev + 1);
@@ -15,31 +16,34 @@ function Quiz({ questions, restartQuiz }) {
   };
 
   const nextQuestion = () => {
+    if (currentIndex + 1 >= 10) {
+      setQuizOver(true);
+      return;
+    }
     setTimeout(() => {
       setCurrentIndex((prev) => prev + 1);
-      setTimeLeft(15);
+      setTimeLeft(15); // Reset timer for the next question
     }, 500);
   };
 
   useEffect(() => {
-    if (timeLeft === 0) {
+    if (timeLeft === 0 || quizOver) {
       nextQuestion();
     }
 
     const timer = setInterval(() => {
-      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+      if (!quizOver) setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [timeLeft]);
+  }, [timeLeft, quizOver]);
 
   return (
-    <div className="quiz-container fade-in">
-      <h1 className="quiz-title">🚀 Interactive Quiz</h1>
+    <div className="quiz-container">
       <Progress currentIndex={currentIndex} total={questions.length} />
       <div className="timer">⏳ {timeLeft}s</div>
 
-      {currentIndex < questions.length ? (
+      {currentIndex < questions.length && !quizOver ? (
         <Question data={questions[currentIndex]} onAnswer={handleAnswer} />
       ) : (
         <Score score={score} total={questions.length} restartQuiz={restartQuiz} />

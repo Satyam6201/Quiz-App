@@ -5,6 +5,7 @@ import "../styles/Score.css";
 function Score({ score, total, restartQuiz }) {
   const [message, setMessage] = useState("");
   const [quote, setQuote] = useState("");
+  const [timer, setTimer] = useState(10); // Auto-restart timer in seconds
   const percentage = Math.round((score / total) * 100);
 
   useEffect(() => {
@@ -19,6 +20,15 @@ function Score({ score, total, restartQuiz }) {
       setQuote("Don't give up. Every mistake is progress.");
     }
   }, [percentage]);
+
+  useEffect(() => {
+    if (timer > 0) {
+      const interval = setInterval(() => setTimer((prev) => prev - 1), 1000);
+      return () => clearInterval(interval);
+    } else {
+      restartQuiz(); // Auto-restart the quiz after 5 seconds
+    }
+  }, [timer]);
 
   return (
     <div className="score-container">
@@ -36,6 +46,7 @@ function Score({ score, total, restartQuiz }) {
       <p className="score-message">{message}</p>
       <p className="score-quote">“{quote}”</p>
       <button className="restart-btn" onClick={restartQuiz}>🔄 Restart Quiz</button>
+      <p className="timer-text">{timer > 0 ? `Auto Restarting in ${timer}s` : "Restarting..."}</p>
     </div>
   );
 }

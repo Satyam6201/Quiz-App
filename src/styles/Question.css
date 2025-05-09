@@ -7,6 +7,7 @@
   max-width: 700px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.6s ease;
+  height: 65vh;
 }
 
 .question-container h2 {
@@ -19,7 +20,7 @@
 .answer-buttons {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1px;
   align-items: center;
 }
 

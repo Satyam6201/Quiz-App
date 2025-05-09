@@ -19,6 +19,7 @@ function App() {
 
   return (
     <div className="app">
+      <h1>Quiz App</h1>
       {questions.length > 0 ? (
         <Quiz key={quizKey} questions={questions} restartQuiz={restartQuiz} />
       ) : (
